@@ -1,0 +1,140 @@
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+}
+
+/* Variables */
+$primary-color: #ffffff;
+
+// Text Colors
+$text-color-primary: #727171;
+$text-color-black: #000000;
+$text-color-white: #ffffff;
+$text-color-dark-grey: #323030;
+
+// Border
+$border-color: #c7c7c7;
+
+// Button
+$button-bg-hover: #d6d6d6;
+$button-bg-active: #2caffe;
+$button-bg-default: #ffffff;
+
+// Card
+$card-bg: #ffffff;
+$card-border-color: #eeeeee;
+
+// Box Shadow
+$box-shadow-footer: 2px 3px 2px 4px;
+// Box Shadow Color
+$box-shadow-color-default: #00000033;
+$box-shadow-color-secondary: #a9a9a980;
+
+/* Mixin */
+/* Icon from Font Awesome */
+@mixin icon-font-awesome {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1em;
+}
+
+/* Center a element */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius; // For browser compatibility
+  -moz-border-radius: $radius; // For browser compatibility
+}
+
+/* Main container */
+.container {
+  background-color: $primary-color;
+  opacity: 1;
+  height: 100vh;
+}
+
+/* Navbar container */
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 80vw;
+  margin: 0 auto;
+  .blur {
+    filter: blur(5px);
+  }
+}
+
+.card {
+  flex: wrap;
+  min-width: 30%;
+
+  border: 1px solid $card-border-color;
+  @include border-radius(8px);
+  box-shadow: 0 0 10px $box-shadow-color-secondary;
+  padding: 1rem;
+  margin: 1rem 1rem 1rem 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stock-container {
+  flex-grow: 1; // For mobile support
+  min-width: 300px;
+  width: 500px;
+}
+
+.chart-container {
+  height: 500px;
+  width: 100%;
+}
+
+footer {
+  @include flex-center();
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: $primary-color;
+  color: $text-color-primary;
+
+  box-shadow: $box-shadow-footer $box-shadow-color-default;
+
+  .logo {
+    margin: 0 0.5rem 0 0.5rem;
+    @include icon-font-awesome();
+  }
+}
+
+table {
+  width: 50vw;
+
+  tbody {
+    td {
+      text-align: center;
+      padding: 0.4rem;
+      box-shadow: 0px 1px 1px 0px $box-shadow-color-default;
+    }
+  }
+}
+
+.center {
+  @include flex-center();
+}
+
+.title {
+  color: $text-color-dark-grey;
+}
+
+.desc {
+  color: $text-color-primary;
+  padding-top: 1rem;
+  font-size: 18px;
+}

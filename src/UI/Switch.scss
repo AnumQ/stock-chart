@@ -1,0 +1,45 @@
+@import "./../index.scss";
+
+/* Switch */
+
+// Variables for switch colors
+$switch-bg-off: #ccc;
+$switch-bg-on: $button-bg-active;
+$slider-bg-off: rgb(255, 255, 255);
+$slider-bg-on: white;
+
+// Style for the switch container
+.switch {
+  margin-right: 1.25rem;
+  position: relative;
+  display: inline-block;
+  border-radius: 1.25rem;
+  width: 3.75rem;
+  height: 2.125rem;
+  cursor: pointer;
+  user-select: none;
+
+  &.off {
+    background-color: $switch-bg-off;
+  }
+
+  &.on {
+    background-color: $switch-bg-on;
+  }
+
+  .slider {
+    position: absolute;
+    left: 0.1875rem;
+    height: 1.625rem;
+    width: 1.625rem;
+    background-color: $slider-bg-off;
+    transition: 0.4s;
+    border-radius: 50%;
+    bottom: 0.25rem;
+
+    &.on {
+      background-color: $slider-bg-on;
+      transform: translateX(1.625rem);
+    }
+  }
+}
