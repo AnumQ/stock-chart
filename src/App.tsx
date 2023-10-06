@@ -25,11 +25,7 @@ function App() {
   async function loadData(stock?: string) {
     try {
       setLoading(true);
-      if (stock) {
-        await fetchData(stock);
-      } else {
-        await fetchData();
-      }
+      await fetchData(stock || undefined);
     } catch (e) {
       console.error(E109_MSG);
     } finally {

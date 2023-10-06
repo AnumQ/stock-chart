@@ -2,7 +2,8 @@
 
 ## Description
 
-This app gathers stock infomration from [https://eodhd.com/financial-apis/api-for-historical-data-and-volumes/](End-Of-Day Historical Stock Market Data API) and displays the data in a stock chart for different periods; daily, weekly and monthly.
+This app gathers stock information from [https://eodhd.com/financial-apis/api-for-historical-data-and-volumes]
+(End-Of-Day Historical Stock Market Data API) and displays the data in a stock chart for different periods; daily, weekly and monthly.
 
 There are two modes, live and demo, toggles between live and demo stock data.
 Live has a limit of max 20 requests a day.
