@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import HighStockChart from "./Components/HighStockChart";
 import Navigation from "./Components/Navigation";
@@ -9,33 +10,50 @@ import {
   NAV_ITEM_DEMO,
   CARD_BLUR,
   CARD,
+  E109_MSG,
 } from "./Helpers/Constants";
 import { StockData } from "./Interfaces/StockData";
 import useData from "./Hooks/useData";
 import { useNavContext } from "./Contexts/NavigationContext";
 
 function App() {
-  const { data, isLoading, fetchData } = useData();
+  const { data, fetchData } = useData();
   const { navState } = useNavContext();
   const [activeButton, setActiveButton] = useState<string>(NAV_ITEM_DEMO);
+  const [isLoading, setLoading] = useState(false);
+
+  async function loadData(stock?: string) {
+    try {
+      setLoading(true);
+      if (stock) {
+        await fetchData(stock);
+      } else {
+        await fetchData();
+      }
+    } catch (e) {
+      console.error(E109_MSG);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
     if (navState.search && navState.search.length > 0) {
       // Fetches stock data for all periods with stock
-      fetchData(navState.search);
+      loadData(navState.search);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navState.search]);
 
   useEffect(() => {
     // Fetches data for all periods based on LIVE or DEMO
-    fetchData();
-  }, [fetchData, navState.isLive]);
+
+    loadData();
+  }, [navState.isLive]);
 
   // Renders stock chart for a specific period
   const renderChart = (period: string, index: number) => {
     return (
-      <div className={CARD} key={index}>
+      <div className={isLoading ? CARD_BLUR : CARD} key={index}>
         <HighStockChart
           data={data[period] as StockData[]}
           chartId={`stock-chart-${index + 1}`}

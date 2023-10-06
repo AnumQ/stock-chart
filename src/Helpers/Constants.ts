@@ -38,3 +38,4 @@ export const E105_MSG = "One or more stock data is undefined.";
 export const E106_MSG = "Unable to fetch chart data for stock";
 export const E107_MSG = "Unknown error occured.";
 export const E108_MSG = "Stockdata is in not in the expected format.";
+export const E109_MSG = "Error occured - Initial load";

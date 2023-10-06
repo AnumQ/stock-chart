@@ -11,7 +11,7 @@ Notes:
 
 - Default stock is set to <MCD.US>.
 - When running on the server, use <AAPL.US> to test the search function.
-- High charts library has been used for visualization of the stock chart.
+- Highcharts library is used for visualization of the stock chart.
 
 ## Installation
 
