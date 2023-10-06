@@ -2,13 +2,15 @@
 
 ## Description
 
-This app fetches stock infomration from [https://eodhd.com/financial-apis/api-for-historical-data-and-volumes/](End-Of-Day Historical Stock Market Data API
-). 
+This app gathers stock infomration from [https://eodhd.com/financial-apis/api-for-historical-data-and-volumes/](End-Of-Day Historical Stock Market Data API) and displays the data in a stock chart for different periods; daily, weekly and monthly.
 
-## Usage: 
+There are two modes, live and demo, toggles between live and demo stock data. 
+Live has a limit of max 20 requests a day.
 
-Default search is set to stock code MCD.US.
-When running on the server, use AAPL.US to test the search function. 
+Notes:
+- Default stock is set to ´MCD.US´.
+- When running on the server, use AAPL.US to test the search function.
+- High charts library has been used for visualization of the stock chart. 
 
 ## Installation
 

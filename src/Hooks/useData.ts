@@ -12,7 +12,7 @@ const useData = () => {
 
   /*  Fetches stock data from api
    Default stock is used if stock is not specified */
-  async function fetchData(stock?: string) {
+  const fetchData = async (stock?: string) => {
     const apiToken = navState.isLive ? LIVE_API_TOKEN : DEMO_API_TOKEN;
     setLoading(true);
     try {
@@ -25,7 +25,7 @@ const useData = () => {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   return {
     data,

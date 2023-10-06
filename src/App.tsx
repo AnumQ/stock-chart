@@ -24,8 +24,8 @@ function App() {
       // Fetches stock data for all periods with stock
       fetchData(navState.search);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [navState.search]); 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [navState.search]);
 
   useEffect(() => {
     // Fetches data for all periods based on LIVE or DEMO
@@ -35,7 +35,7 @@ function App() {
   // Renders stock chart for a specific period
   const renderChart = (period: string, index: number) => {
     return (
-      <div className={isLoading ? CARD_BLUR : CARD} key={index}>
+      <div className={CARD} key={index}>
         <HighStockChart
           data={data[period] as StockData[]}
           chartId={`stock-chart-${index + 1}`}
